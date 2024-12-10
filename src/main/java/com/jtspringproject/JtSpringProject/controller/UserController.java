@@ -132,9 +132,39 @@ public class UserController{
 
 		return "updateProfile";
 	}
-	
 
-	   //for Learning purpose of model
+
+	@RequestMapping(value = "updateuser", method = RequestMethod.POST)
+	public String updateUser(@ModelAttribute User user)
+	{
+		// Check if username already exists in database
+		//boolean exists = this.userService.checkUserExists(user.getUsername());
+
+		String username = SecurityContextHolder.getContext().getAuthentication().getName();
+		User updatedUser = userService.getUserByUsername(username);
+
+		updatedUser.setUsername(user.getUsername());
+		updatedUser.setAddress(user.getAddress());
+		updatedUser.setEmail(user.getEmail());
+		this.userService.addUser(updatedUser);
+
+//
+
+//			System.out.println("User updated : " + updatedUser.getUsername());
+//			ModelAndView mView = new ModelAndView("index");
+//			mView.addObject("username", user.getUsername());
+			return "redirect:/";
+
+		//	System.out.println("User cannot update " + user.getUsername());
+//			ModelAndView mView = new ModelAndView("index");
+//			mView.addObject("username", user.getUsername());
+		//	return "redirect:/profileDisplay";
+
+	}
+
+
+
+	//for Learning purpose of model
 		@GetMapping("/test")
 		public String Test(Model model)
 		{
