@@ -17,7 +17,7 @@
 	href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
 	integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
 	crossorigin="anonymous">
-<title>Document</title>
+<title>Ecommerce</title>
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -37,7 +37,7 @@
 				<ul class="navbar-nav mr-auto"></ul>
 				<ul class="navbar-nav">
 					<li class="nav-item active"><a class="nav-link"
-						href="/adminhome" >Home Page</a></li>
+						href="/admin/Dashboard" >Home Page</a></li>
 					<li class="nav-item active"><a class="nav-link"
 						href="/logout" >Logout</a></li>
 
@@ -53,11 +53,7 @@
 				<div class="col-sm-5">
 					
 					<div class="form-group">
-						<c:forEach var="product" items="${products}">
-						<label for="name">Id</label> 
-						<input type="number" readonly="readonly" class="form-control border border-warning" name="id"  value="${product.id + 1} ">
-						
-						</c:forEach>
+
 						
 
 					</div>
@@ -97,7 +93,7 @@
 				<div class="col-sm-5"><br>
 				<div class="form-group">
 						<label for="description">Product Description</label>
-						<textarea class="form-control border border-warning" rows="4" name="description" placeholder="Product Details" value= "no product details"></textarea>
+						<textarea class="form-control border border-warning" rows="4" name="description" placeholder="Product Details"></textarea>
 					</div>
 					<p>Product Image</p>
 					<div class="form-group">
@@ -107,7 +103,7 @@
 
 					</div>
 					<div class="form-group">
-						<img src="Product Images/one.jpg" alt="Hello" id="imgPreview" height="100px" width="100px"
+						<img src="../Product Images/one.jpg" alt="Hello" id="imgPreview" height="100px" width="100px"
 							style="margin-top: 20px" >
 					</div>
 					<input type="hidden" name="imgName">
